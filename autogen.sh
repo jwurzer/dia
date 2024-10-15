@@ -22,7 +22,7 @@ DIE=0
 	DIE=1
 }
 
-(libtool --version) < /dev/null > /dev/null 2>&1 || {
+(glibtool --version) < /dev/null > /dev/null 2>&1 || {
 	echo
 	echo "You must have libtool installed to compile $PROJECT."
 	echo "Get ftp://alpha.gnu.org/gnu/libtool-1.0h.tar.gz"
@@ -65,8 +65,8 @@ glib-gettextize --copy --force
 echo "Running intltoolize"
 intltoolize --copy --force --automake
 
-echo "Running libtoolize"
-libtoolize --copy --force
+echo "Running glibtoolize"
+glibtoolize --copy --force
 
 aclocal $ACLOCAL_FLAGS
 autoheader
@@ -88,7 +88,7 @@ printerr() {
     echo "$@" >&2
 }
 
-conf_flags="--enable-maintainer-mode --enable-db2html"
+conf_flags=""
 if test x$NOCONFIGURE = x; then
     if [ "$#" = 0 ]; then
       printerr "**Warning**: I am going to run \`configure' with no arguments."
