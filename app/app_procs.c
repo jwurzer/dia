@@ -433,7 +433,8 @@ dump_dependencies(void)
    */
   g_print ("Library versions (at compile time)\n");
 #ifdef HAVE_LIBPNG
-  g_print ("libpng  : %s (%s)\n", png_get_header_ver(NULL), PNG_LIBPNG_VER_STRING);
+  // on macos: Undefined symbols for architecture arm64: "_png_get_header_ver". wrong linking --> remove it
+  //g_print ("libpng  : %s (%s)\n", png_get_header_ver(NULL), PNG_LIBPNG_VER_STRING);
 #endif
 #ifdef HAVE_FREETYPE
   {
