@@ -43,8 +43,7 @@ void
 color_init(void)
 {
   if (!_color_initialized) {
-    GdkVisual *visual = gtk_widget_get_default_visual();
-    colormap = gdk_colormap_new (visual, FALSE); 
+    colormap = gdk_screen_get_system_colormap(gdk_screen_get_default());
 
     _color_initialized = TRUE;
 
