@@ -39,8 +39,9 @@ const real EPSILON = 1e-6;
 int num_objects = 0;
 
 static void
-_test_creation (const DiaObjectType *type)
+_test_creation (const void *param)
 {
+  const DiaObjectType *type = (const DiaObjectType *) param;
   int i;
   Handle *h1 = NULL, *h2 = NULL;
   Point point = {0, 0};
@@ -112,8 +113,9 @@ _test_creation (const DiaObjectType *type)
 }
 
 static void
-_test_copy (const DiaObjectType *type)
+_test_copy (const void *param)
 {
+  const DiaObjectType *type = (const DiaObjectType *) param;
   Handle *h1 = NULL, *h2 = NULL;
   Point from = {0, 0};
   DiaObject *oc, *o = type->ops->create (&from, type->default_user_data, &h1, &h2);
@@ -172,8 +174,9 @@ _object_change_free(ObjectChange *change)
 }
 
 static void
-_test_movement (const DiaObjectType *type)
+_test_movement (const void *param)
 {
+  const DiaObjectType *type = (const DiaObjectType *) param;
   Handle *h1 = NULL, *h2 = NULL;
   Point from = {0, 0};
   DiaObject *o = type->ops->create (&from, type->default_user_data, &h1, &h2);
@@ -215,8 +218,9 @@ _test_movement (const DiaObjectType *type)
 }
 
 static void
-_test_change (const DiaObjectType *type)
+_test_change (const void *param)
 {
+  const DiaObjectType *type = (const DiaObjectType *) param;
   Handle *h1 = NULL, *h2 = NULL;
   Point from = {0, 0};
   DiaObject *o = type->ops->create (&from, type->default_user_data, &h1, &h2);

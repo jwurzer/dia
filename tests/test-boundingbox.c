@@ -99,8 +99,9 @@ static struct _TestBeziers {
 #undef BEZ
 
 static void
-_check_one_bezier (const struct _TestBeziers *test)
+_check_one_bezier (const void *param)
 {
+  const struct _TestBeziers *test = (const struct _TestBeziers *) param;
   Rectangle rect;
   PolyBBExtras extra = {0, T*.7, T*.7, T*.7, 0 };
   
