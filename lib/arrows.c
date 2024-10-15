@@ -18,7 +18,6 @@
 
 #include <config.h>
 
-#define _BSD_SOURCE 1 /* to get finite */
 #include <math.h>
 #include <stdio.h>
 #include <string.h>
@@ -421,7 +420,7 @@ draw_one_exactly(DiaRenderer *renderer, Point *to, Point *from,
   else {
     vl.x = 1.0; vl.y = 0.0;
   }
-  if (!finite(vl.x)) {
+  if (!isfinite(vl.x)) {
     vl.x = 1.0; vl.y = 0.0;
   }
   point_get_perp(&vt,&vl);
@@ -498,7 +497,7 @@ draw_one_or_none(DiaRenderer *renderer, Point *to, Point *from,
   else {
     vl.x = 1.0; vl.y = 0.0;
   }
-  if (!finite(vl.x)) {
+  if (!isfinite(vl.x)) {
     vl.x = 1.0; vl.y = 0.0;
   }
   point_get_perp(&vt,&vl);
@@ -610,7 +609,7 @@ draw_fill_ellipse(DiaRenderer *renderer, Point *to, Point *from,
   else {
     vl.x = 1.0; vl.y = 0.0;
   }
-  if (!finite(vl.x)) {
+  if (!isfinite(vl.x)) {
     vl.x = 1.0; vl.y = 0.0;
   }
   point_get_perp(&vt,&vl);
@@ -672,7 +671,7 @@ draw_empty_ellipse(DiaRenderer *renderer, Point *to, Point *from,
   else {
     vl.x = 1.0; vl.y = 0.0;
   }
-  if (!finite(vl.x)) {
+  if (!isfinite(vl.x)) {
     vl.x = 1.0; vl.y = 0.0;
   }
 
@@ -718,7 +717,7 @@ calculate_box (Point *poly, const Point *to, const Point *from,
   else {
     vl.x = 1.0; vl.y = 0.0;
   }
-  if (!finite(vl.x)) {
+  if (!isfinite(vl.x)) {
     vl.x = 1.0; vl.y = 0.0;
   }
   point_get_perp(&vt,&vl);
@@ -832,7 +831,7 @@ draw_fill_dot(DiaRenderer *renderer, Point *to, Point *from,
   else {
     vl.x = 1.0; vl.y = 0.0;
   }
-  if (!finite(vl.x)) {
+  if (!isfinite(vl.x)) {
     vl.x = 1.0; vl.y = 0.0;
   }
   point_get_perp(&vt,&vl);
@@ -908,7 +907,7 @@ draw_integral(DiaRenderer *renderer, Point *to, Point *from,
   else {
     vl.x = 1.0; vl.y = 0.0;
   }
-  if (!finite(vl.x)) {
+  if (!isfinite(vl.x)) {
     vl.x = 1.0; vl.y = 0.0;
   }
   point_get_perp(&vt,&vl);
@@ -946,7 +945,7 @@ calculate_slashed (Point *poly, const Point *to, const Point *from,
   else {
     vl.x = 1.0; vl.y = 0.0;
   }
-  if (!finite(vl.x)) {
+  if (!isfinite(vl.x)) {
     vl.x = 1.0; vl.y = 0.0;
   }
   point_get_perp(&vt,&vl);

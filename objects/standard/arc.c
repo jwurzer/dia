@@ -18,7 +18,6 @@
 
 #include <config.h>
 
-#define _BSD_SOURCE 1 /* to get finite */
 #include <math.h>
 #include <assert.h>
 
@@ -405,7 +404,7 @@ arc_compute_midpoint(Arc *arc, const Point * ep0, const Point * ep1 , Point * mi
             angle -= -atan2(oep0->y - arc->center.y, oep0->x - arc->center.x); /* minus angle of old */
             angle += -atan2(ep1->y - arc->center.y, ep1->x - arc->center.x); /* plus angle of new */
             angle -= -atan2(oep1->y - arc->center.y, oep1->x - arc->center.x); /* minus angle of old */
-            if (!finite(angle)){
+            if (!isfinite(angle)){
                     return 0;
             }
             if (angle < -1 * M_PI){
